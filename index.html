@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <title>Sample Video Gallary</title>
+
+        <link rel="stylesheet" href="videogallary.css">
+
+        </head>
+        <body>
+<h3 class="heading">Sample Video Gallary for Alternachannel-san</h3>
+<div class="container">
+    <div class="main-video">
+        <div class="video">
+            <video src="waterfall.mp4" controls muted autoplay></video>
+            <h3 class="title">01.river</h3>
+        </div>
+
+    </div>
+    <div class="video-list">
+        <div class="vid active">
+            <video src="waterfall.mp4"  muted></video>
+            <h3 class="title">01. river</h3> 
+        </div>
+        <div class="vid">
+            <video src="sea4.mp4"  muted></video>
+            <h3 class="title">02. sea</h3> 
+        </div>
+        <div class="vid">
+            <video src="sea7.mp4"  muted></video>
+            <h3 class="title">03. sea2</h3> 
+        </div>
+        <div class="vid">
+            <video src="sea5.mp4"  muted></video>
+            <h3 class="title">04.sea3</h3> 
+        </div>
+        <div class="vid">
+            <video src="sea6.mp4"  muted></video>
+            <h3 class="title">05. sea4</h3> 
+        </div>
+        <div class="vid">
+            <video src="sea3.mp4"  muted></video>
+            <h3 class="title">06. sea6</h3> 
+        </div>
+        
+    </div>
+</div>
+<script>
+    let listVideo = document.querySelectorAll('.video-list .vid');
+    let mainVideo = document.querySelector('.main-video video');
+    let title = document.querySelector('.main-video .title');
+    
+    listVideo.forEach(video =>{
+        video.onclick = () =>{
+            listVideo.forEach(vid => vid.classList.remove('active'));
+            video.classList.add('active');
+            if(video.classList.contains('active')){
+                let src = video.children[0].getAttribute('src');
+                mainVideo.src = src;
+                let text = video.children[1].innerHTML;
+                title.innerHTML = text;
+            };
+        };
+
+    });
+      
+</script>
+        </body>
+        </html>
